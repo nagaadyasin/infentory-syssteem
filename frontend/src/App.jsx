@@ -13,10 +13,12 @@ export default function App() {
 
   // Fetch products & sales
   const fetchData = async () => {
-    const pRes = await fetch("https://infentory-syssteem.onrender.com/products");
+    const pRes = await fetch(
+      "https://infentory-syssteem-1.onrender.com/products"
+    );
     setProducts(await pRes.json());
 
-    const sRes = await fetch("https://infentory-syssteem.onrender.com/sales");
+    const sRes = await fetch("https://infentory-syssteem-1.onrender.com/sales");
     setSales(await sRes.json());
   };
 
@@ -27,7 +29,7 @@ export default function App() {
   // Add new product
   const handleAddProduct = async () => {
     if (!newProduct.name || !newProduct.price || !newProduct.stock) return;
-    await fetch("https://infentory-syssteem.onrender.com/products", {
+    await fetch("https://infentory-syssteem-1.onrender.com/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
